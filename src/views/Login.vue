@@ -5,7 +5,8 @@
         <div class="text-center mb-4">
           <img src="https://img.icons8.com/ios-filled/100/4a90e2/user-male-circle.png" alt="Login Icon" class="mb-3" style="width: 70px;">
           <h2 class="card-title fw-bold">Iniciar Sesión</h2>
-          <p class="text-muted"> Bienvenido. Ingresa tus credenciales. Sistema de inventario - Prueba técnica.</p>
+          <p class="text-muted">  Bienvenido. Ingresa tus credenciales.
+Sistema de Inventario — Prueba Técnica</p>
         </div>
         <form @submit.prevent="submit" autocomplete="off">
           <div class="mb-4">
