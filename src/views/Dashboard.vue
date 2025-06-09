@@ -8,7 +8,7 @@
             <i class="bi bi-boxes text-primary fs-4"></i>
           </div>
           <div>
-            <h4 class="navbar-brand mb-0 fw-bold">Sistema de Inventario prueba Tecnica </h4>
+            <h4 class="navbar-brand mb-0 fw-bold">Sistema de Inventario - Prueba Técnica</h4>
             <small class="text-white opacity-75">Panel de Control</small>
           </div>
         </div>
