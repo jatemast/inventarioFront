@@ -76,11 +76,10 @@
     </div>
   </div>
 </template>
-
-<script setup>
+ <script setup>
 import { ref } from 'vue'
-import axios from 'axios'
 import { useRouter } from 'vue-router'
+import { register } from '../services/authService'  
 
 const router = useRouter()
 
@@ -94,33 +93,14 @@ async function submit() {
   error.value = ''
 
   try {
-    const { data } = await axios.post('http://127.0.0.1:8000/api/register', {
-      name: name.value,
-      email: email.value,
-      password: password.value,
-      password_confirmation: password_confirmation.value,
-    })
-
-    // Guardar token en localStorage
-    localStorage.setItem('token', data.access_token)
-
-    // Configurar axios para futuras peticiones
-    axios.defaults.headers.common['Authorization'] = `Bearer ${data.access_token}`
-
-    // Redirigir al dashboard (asegúrate que exista la ruta con nombre 'Dashboard')
+    await register(name.value, email.value, password.value, password_confirmation.value)
     router.push({ name: 'Dashboard' })
-
   } catch (err) {
-    if (err.response && err.response.data && err.response.data.message) {
-      error.value = err.response.data.message
-    } else if (err.response && err.response.data && err.response.data.errors) {
-      error.value = Object.values(err.response.data.errors).flat().join(' ')
-    } else {
-      error.value = 'Hubo un error al registrar el usuario.'
-    }
+    error.value = err.message || 'Hubo un error al registrar el usuario.'
   }
 }
 </script>
+
 
 <style scoped>
 .login-bg {
